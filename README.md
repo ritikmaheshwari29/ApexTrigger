@@ -1,5 +1,7 @@
 # ApexTrigger
 
+# Trigger Context Variables : https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers_context_variables.htm
+
 1) **Understanding Trigger Events**
 
     Trigger.new ---> This is a list which gives us access to the new version of the record user is trying to insert
