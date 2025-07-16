@@ -13,7 +13,8 @@
         				map<Id, cobject__c>
 
 
-3) **Before Insert Trigger Event & Trigger Context Variables**
+
+2) **Before Insert Trigger Event & Trigger Context Variables**
 
 ````
 trigger beforeAccountInsert on Account (before insert) {
@@ -25,3 +26,22 @@ trigger beforeAccountInsert on Account (before insert) {
         System.debug('🚀' + a.Name);
     }
 ````
+
+
+3) **Trigger with After Insert Trigger Event**
+
+```
+   trigger afterAccountInsert on Account (after insert) {
+    
+    System.debug('🚀');
+    
+    for(Account a: Trigger.new){
+        Contact c = new Contact();
+        c.AccountId = a.Id;
+        c.LastName = 'Upadhyay';
+        
+        insert c;
+    }
+
+}
+```
