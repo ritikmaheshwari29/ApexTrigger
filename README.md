@@ -56,3 +56,30 @@ trigger beforeAccountInsert on Account (before insert) {
     
              System.debug(' 🚀 ' +Trigger.newMap);
        }```
+
+
+5) **Other Trigger Context Variables**
+
+```
+trigger triggerContext on Account (before insert, after update) {
+    
+    if(Trigger.isInsert){
+        for(Account a: Trigger.new){
+            
+            System.debug('Before Insert 🚀 ' +a);
+        }
+        
+    }
+    
+    
+    if(Trigger.isUpdate && Trigger.isAfter){
+        for(Account a: Trigger.new){
+            
+            System.debug('After Insert Trigger 🚀 ' +a);
+        }
+        
+    }
+
+}
+
+```
