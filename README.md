@@ -45,3 +45,16 @@ trigger beforeAccountInsert on Account (before insert) {
 
 }
 ```
+
+
+4) **OldMap and NewMap Context Variables**
+
+   ```
+   trigger exploreTriggerMaps on Account (before update) {
+    
+             System.debug(' 🚀 ' +Trigger.oldMap);
+    
+             System.debug(' 🚀 ' +Trigger.newMap);
+}
+
+   ```
