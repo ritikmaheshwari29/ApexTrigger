@@ -83,3 +83,27 @@ trigger triggerContext on Account (before insert, after update) {
 }
 
 ```
+
+6) **Making Web Service Callouts From Triggers**
+
+trigger makeAWSCalloutFromTriggers on Account (before insert) {
+    for(Account a: Trigger.new){
+        
+        //we can pass in parameters
+        WSController.pushRecordToAnotherPlatform();
+        
+    }
+
+}
+
+------------------------------------------
+public class WSController {
+    
+    @future(callout=true)
+    public static void pushRecordToAnotherPlatform(){
+        //code to make a callout
+        
+    }
+
+}
+   
