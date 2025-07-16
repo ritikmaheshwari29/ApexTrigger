@@ -55,6 +55,4 @@ trigger beforeAccountInsert on Account (before insert) {
              System.debug(' 🚀 ' +Trigger.oldMap);
     
              System.debug(' 🚀 ' +Trigger.newMap);
-}
-
-   ```
+       }```
