@@ -267,3 +267,20 @@ System.debug('Tools: ' + tools);
 System.debug('Certifications: ' + isCertified);
 System.debug('Is Admin Certified? ' + isCertified.get('Admin'));
 ```
+----------------------------
+**For-Each Loop (Over Collections)**
+
+The list or set iteration for loop iterates over all the elements in a list or set. Its syntax is:
+for (variable : list_or_set) {
+    code_block
+}
+where variable must be of the same primitive or sObject type as list_or_set.
+When executing this type of for loop, the Apex runtime engine assigns variable to each element in list_or_set, and runs the code_block for each value.
+
+```
+List<String> topics = new List<String>{'SCV', 'Amazon Connect', 'Contact Lens'};
+
+for(String topic : topics) {
+    System.debug('Exploring: ' + topic);
+}
+````
