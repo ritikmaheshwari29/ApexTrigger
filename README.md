@@ -178,3 +178,92 @@ public class AccountController_Test {
     
 
 }`````
+
+
+-----------
+
+**Apex Variables & Data Types **
+
+<datatype> <variableName> = <value>;
+
+
+| Type       | Example Values      | Notes                       |
+| ---------- | ------------------- | --------------------------- |
+| `String`   | `'Ritik'`, `'SCV'`  | Text values                 |
+| `Integer`  | `5`, `100`, `-7`    | Whole numbers               |
+| `Decimal`  | `10.5`, `99.99`     | Numbers with decimal points |
+| `Boolean`  | `true`, `false`     | Logical true/false          |
+| `Date`     | `Date.today()`      | Date only                   |
+| `Datetime` | `Datetime.now()`    | Date with time              |
+| `ID`       | `'001xx000003DGb4'` | Salesforce record ID        |
+
+
+**Apex Collections: List, Set, Map**
+
+Apex has three core collection types:
+
+List → ordered collection, allows duplicates
+
+Set → unordered collection, no duplicates
+
+Map → key-value pair collection
+
+✅ 1. List
+A List stores items in order and can have duplicates.
+````
+// Declare a List of Strings
+List<String> scvTopics = new List<String>();
+scvTopics.add('SCV Basics');
+scvTopics.add('Amazon Connect');
+scvTopics.add('Contact Lens');
+scvTopics.add('SCV Basics'); // Duplicates allowed
+
+System.debug('SCV Topics List: ' + scvTopics);
+````
+
+You can also initialize directly:
+````
+List<Integer> scores = new List<Integer>{95, 88, 99};
+````
+
+✅ 2. Set
+A Set is unordered and doesn’t allow duplicates.
+```
+Set<String> certs = new Set<String>();
+certs.add('SCV Specialist');
+certs.add('Tableau CRM');
+certs.add('Admin');
+certs.add('Admin'); // Won’t be added again
+
+System.debug('My Certifications: ' + certs);
+```
+
+
+✅ 3. Map
+A Map stores key–value pairs, like a dictionary.
+
+```
+Map<String, Integer> certScores = new Map<String, Integer>();
+certScores.put('SCV Specialist', 92);
+certScores.put('Admin', 85);
+certScores.put('Platform Dev 1', 89);
+
+System.debug('Certification Scores: ' + certScores);
+System.debug('SCV Score: ' + certScores.get('SCV Specialist'));
+```
+
+🧪 Try This in Developer Console:
+```
+List<String> topics = new List<String>{'Service Cloud', 'Voice', 'Digital Channels'};
+Set<String> tools = new Set<String>{'Connect', 'Lex', 'Contact Lens', 'Connect'}; // Duplicate ignored
+Map<String, Boolean> isCertified = new Map<String, Boolean>{
+    'Admin' => true,
+    'SCV Specialist' => true,
+    'JavaScript Dev 1' => false
+};
+
+System.debug('Topics: ' + topics);
+System.debug('Tools: ' + tools);
+System.debug('Certifications: ' + isCertified);
+System.debug('Is Admin Certified? ' + isCertified.get('Admin'));
+```
