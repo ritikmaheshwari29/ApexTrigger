@@ -109,3 +109,72 @@ public class WSController {
 
 }
    
+---------------------------------------------------------------------------------------------
+
+WHy do we have to write Test Classes?
+
+
+---------------------------------
+
+Creating a basic Apex Test Class
+```
+@isTest
+public class AccountController_Test {
+    
+    testMethod static void saveTest(){
+        //method 1
+    }
+    
+    //method 2
+    
+    @isTest
+    private static void saveTestMethod(){
+        
+    }
+    
+
+}
+```
+
+```
+public class AccountController {
+    public void save(String accountName, String accountNumber, String rating){
+        
+        Account a = new Account();
+		a.Name = accountName;
+        a.AccountNumber = accountNumber;
+        a.Rating = rating;
+        
+        insert a;
+        System.debug('🚀 '+ a);
+        
+        if(a.Rating !=null){
+            contact c = new Contact();
+            c.LastName = 'LastName';
+            
+            insert c;
+        } else{
+            Case caseRecord = new Case();
+            caseRecord.Description = 'Test';
+            insert caseRecord;
+        }
+    }
+
+}
+`````
+**CLICK--> RunTest**
+
+`````
+@isTest
+public class AccountController_Test {
+    
+    testMethod static void saveTest(){
+        //method 1
+        AccountController accCon = new AccountController();
+        accCon.save('Testing Account', 'ABCD1234', 'Warm');
+        
+         accCon.save('New Testing Account', 'ABCD12345', null);
+    }
+    
+
+}`````
